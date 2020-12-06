@@ -49,18 +49,18 @@ class ReportController implements Controller {
             as: "articles",
           }
         },
-        {
-          $addField: {
-            amountOfArticles: {
-              $size: "$articles"
-            }
-          }
-        },
-        {
-          $sort: {
-            amountOfArticles: 1,
-          }
-        }
+        // {
+        //   $addField: {
+        //     amountOfArticles: {
+        //       $size: "$articles"
+        //     }
+        //   }
+        // },
+        // {
+        //   $sort: {
+        //     amountOfArticles: 1,
+        //   }
+        // }
       ]
     );
     response.send({
