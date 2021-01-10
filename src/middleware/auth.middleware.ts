@@ -6,6 +6,8 @@ import DataStoredInToken from '../interfaces/dataStoredInToken';
 import RequestWithUser from '../interfaces/requestWithUser.interface';
 import userModel from '../user/user.model';
 
+// just for testing travis
+
 function authMiddleware(omitSecondFactor = false): RequestHandler {
   return async (request: RequestWithUser, response: Response, next: NextFunction) => {
     const cookies = request.cookies;
