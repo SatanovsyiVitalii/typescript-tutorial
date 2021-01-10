@@ -24,7 +24,7 @@ class AuthenticationService {
       ...userData,
       password: hashedPassword,
       isTwoFactorAuthenticationEnabled: false,
-      twoFactorAuthenticationCode: "",
+      twoFactorAuthenticationCode: '',
     });
     user.password = undefined;
     const tokenData = this.createToken(user);

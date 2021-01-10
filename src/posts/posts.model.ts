@@ -1,15 +1,15 @@
-import * as mongoose from "mongoose";
-import Post from "./post.interface";
+import * as mongoose from 'mongoose';
+import Post from './post.interface';
 
 const postSchema = new mongoose.Schema({
   author: {
-    ref: "User",
+    ref: 'User',
     type: mongoose.Schema.Types.ObjectId,
   },
   content: String,
   title: String,
 });
 
-const postModel = mongoose.model<Post & mongoose.Document>("Post", postSchema);
+const postModel = mongoose.model<Post & mongoose.Document>('Post', postSchema);
 
 export default postModel;

@@ -1,15 +1,15 @@
-import * as express from "express";
-import Post from "./post.interface";
-import Controller from "../interfaces/controller.interface";
-import postModel from "./posts.model";
-import RequestWithUser from "../interfaces/requestWithUser.interface";
-import PostNotFoundException from "../exceptions/PostNotFoundException";
-import validationMiddleware from "../middleware/validation.middleware";
-import CreatePostDto from "./post.dto";
-import authMiddleware from "../middleware/auth.middleware";
+import * as express from 'express';
+import Post from './post.interface';
+import Controller from '../interfaces/controller.interface';
+import postModel from './posts.model';
+import RequestWithUser from '../interfaces/requestWithUser.interface';
+import PostNotFoundException from '../exceptions/PostNotFoundException';
+import validationMiddleware from '../middleware/validation.middleware';
+import CreatePostDto from './post.dto';
+import authMiddleware from '../middleware/auth.middleware';
 
 class PostsController implements Controller {
-  public path = "/posts";
+  public path = '/posts';
   public router = express.Router();
   private post = postModel;
 
@@ -29,7 +29,7 @@ class PostsController implements Controller {
   }
 
   private getAllPosts = async (request: express.Request, response: express.Response) => {
-    const posts = await this.post.find().populate("author", "-password");
+    const posts = await this.post.find().populate('author', '-password');
     response.send(posts);
   }
 
@@ -40,14 +40,14 @@ class PostsController implements Controller {
       author: request.user._id,
     });
     const savedPost = await createdPost.save();
-    await savedPost.populate("author", "name").execPopulate();
+    await savedPost.populate('author', 'name').execPopulate();
     response.send(savedPost);
   }
 
   private getPostById = (request: express.Request, response: express.Response, next) => {
     const id = request.params.id;
     this.post.findById(id)
-      .then(post => {
+      .then((post) => {
         response.send(post);
       }).catch((error) => {
         next(new PostNotFoundException(id));
@@ -58,7 +58,7 @@ class PostsController implements Controller {
     const id = request.params.id;
     const postData: Post = request.body;
     this.post.findByIdAndUpdate(id, postData, { new: true })
-      .then(post => {
+      .then((post) => {
         response.send(post);
       })
       .catch(() => {

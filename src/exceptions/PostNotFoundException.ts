@@ -1,4 +1,4 @@
-import HttpException from "./HttpException";
+import HttpException from './HttpException';
 
 class PostNotFoundException extends HttpException {
   constructor(id: string) {
