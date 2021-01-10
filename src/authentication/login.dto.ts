@@ -8,4 +8,4 @@ class LogInDto {
   public password: string;
 }
 
-export default LogInDto;
+export { LogInDto };
