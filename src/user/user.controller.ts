@@ -1,12 +1,12 @@
-import * as express from "express";
-import NotAuthorizedException from "../exceptions/NotAuthorizedException";
-import Controller from "../interfaces/controller.interface";
-import RequestWithUser from "../interfaces/requestWithUser.interface";
-import authMiddleware from "../middleware/auth.middleware";
-import postModel from "../posts/posts.model";
+import * as express from 'express';
+import NotAuthorizedException from '../exceptions/NotAuthorizedException';
+import Controller from '../interfaces/controller.interface';
+import RequestWithUser from '../interfaces/requestWithUser.interface';
+import authMiddleware from '../middleware/auth.middleware';
+import postModel from '../post/post.model';
 
 class UserController implements Controller {
-  public path = "/users";
+  public path = '/users';
   public router = express.Router();
   private post = postModel;
 
@@ -15,7 +15,7 @@ class UserController implements Controller {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}/:id/posts`, authMiddleware, this.getAllPostsOfUser);
+    this.router.get(`${this.path}/:id/posts`, authMiddleware(), this.getAllPostsOfUser);
   }
 
   private getAllPostsOfUser = async (request: RequestWithUser, response: express.Response, next: express.NextFunction) => {

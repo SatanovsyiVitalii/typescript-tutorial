@@ -4,7 +4,13 @@
     "target": "es2017",
     "outDir": "./dist",
     "baseUrl": "./src",
-    "experimentalDecorators": true
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/**/*.ts"
