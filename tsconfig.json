@@ -6,6 +6,7 @@
     "baseUrl": "./src",
     "alwaysStrict": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "types": [

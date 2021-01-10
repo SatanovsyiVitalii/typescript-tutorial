@@ -10,7 +10,7 @@ import validationMiddleware from '../middleware/validation.middleware';
 import CreateUserDto from '../user/user.dto';
 import userModel from './../user/user.model';
 import AuthenticationService from './authentication.service';
-import LogInDto from './logIn.dto';
+import LogInDto from './login.dto';
 import TwoFactorAuthenticationDto from './TwoFactorAuthentication.dto';
 
 class AuthenticationController implements Controller {
