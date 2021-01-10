@@ -3,7 +3,7 @@ import NotAuthorizedException from '../exceptions/NotAuthorizedException';
 import Controller from '../interfaces/controller.interface';
 import RequestWithUser from '../interfaces/requestWithUser.interface';
 import authMiddleware from '../middleware/auth.middleware';
-import postModel from '../post/post.model';
+import { postModel } from '../posts/posts.model';
 
 class UserController implements Controller {
   public path = '/users';

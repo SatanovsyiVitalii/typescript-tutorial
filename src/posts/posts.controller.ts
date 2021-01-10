@@ -1,7 +1,7 @@
 import * as express from 'express';
 import Post from './post.interface';
 import Controller from '../interfaces/controller.interface';
-import postModel from './posts.model';
+import { postModel } from './posts.model';
 import RequestWithUser from '../interfaces/requestWithUser.interface';
 import PostNotFoundException from '../exceptions/PostNotFoundException';
 import validationMiddleware from '../middleware/validation.middleware';
@@ -44,7 +44,7 @@ class PostsController implements Controller {
     response.send(savedPost);
   }
 
-  private getPostById = (request: express.Request, response: express.Response, next) => {
+  private getPostById = (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     this.post.findById(id)
       .then((post) => {
@@ -54,7 +54,7 @@ class PostsController implements Controller {
       });
   }
 
-  private modifyPost = (request: express.Request, response: express.Response, next) => {
+  private modifyPost = (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     const postData: Post = request.body;
     this.post.findByIdAndUpdate(id, postData, { new: true })
@@ -66,7 +66,7 @@ class PostsController implements Controller {
       });
   }
 
-  private deletePost = (request: express.Request, response: express.Response, next) => {
+  private deletePost = (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const id = request.params.id;
     this.post.findByIdAndDelete(id)
       .then((successResponse) => {

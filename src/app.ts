@@ -48,7 +48,7 @@ class App {
       MONGO_PASSWORD,
       MONGO_PATH,
     } = process.env;
-    mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.fhjwo.mongodb.net/${MONGO_PATH}?retryWrites=true&w=majority`, { useNewUrlParser: true });
+    mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.fhjwo.mongodb.net/${MONGO_PATH}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
   }
 }
 
